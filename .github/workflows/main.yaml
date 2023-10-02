@@ -1,0 +1,28 @@
+name: Run Selenium On GitHub Action
+on:
+  workflow_dispatch:
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checking out repo
+        uses: actions/checkout@v3
+      - name: Setting up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+      - name: Installing package list
+        run: apt list --installed
+
+      - name: Check verion/path
+        run: |
+          google-chrome --version
+          chromedriver --version
+          readlink -f chromedriver
+
+      - name: Install requirements
+        run: |
+          pip install -r requirements.txt
+
+      - name: Running the Python script
+        run: pytest -m test_run -v -s --disable-warnings
