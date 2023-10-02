@@ -20,6 +20,9 @@ jobs:
           chromedriver --version
           readlink -f chromedriver
 
+      - name: Start Selenium docker grid setup
+        run: docker-compose -f "docker-compose.yml" up -d --build
+
       - name: Install requirements
         run: |
           pip install -r requirements.txt

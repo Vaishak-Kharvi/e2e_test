@@ -16,10 +16,13 @@ scenarios(os.getcwd() + '/Features/google.feature')
 
 @pytest.fixture
 def driver():
-    display = Display(visible=0, size=(800, 800))
-    display.start()
-    driver = webdriver.Chrome(ChromeDriverManager().install())
-    driver.maximize_window()
+    # display = Display(visible=0, size=(800, 800))
+    # display.start()
+    options = webdriver.ChromeOptions()
+    options.add_argument("--disable-dev-shm-usage")
+    driver = webdriver.Remote(command_executor='http://localhost:4444/',options=options)
+    # driver = webdriver.Chrome(ChromeDriverManager().install())
+    # driver.maximize_window()
     return driver
 
 
