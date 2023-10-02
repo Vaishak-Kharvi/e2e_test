@@ -25,7 +25,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Running the Python script
-        run: pytest -m test_run -v -s --disable-warnings --alluredir=allure-report
+        run: pytest -m test_run -v -s --disable-warnings
 
       # - name: Get Allure history
       #   uses: actions/checkout@v2
