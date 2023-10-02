@@ -20,7 +20,7 @@ def driver():
     # display.start()
     options = webdriver.ChromeOptions()
     options.add_argument("--disable-dev-shm-usage")
-    driver = webdriver.Remote(command_executor='http://localhost:4444/',options=options)
+    driver = webdriver.Remote(command_executor='http://selenium-hub:4444/wd/hub',options=options)
     driver.implicitly_wait(30)
     # driver = webdriver.Chrome(ChromeDriverManager().install())
     # driver.maximize_window()
