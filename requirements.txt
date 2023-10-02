@@ -4,3 +4,4 @@ urllib3==1.26.16
 selenium==3.141.0
 PyVirtualDisplay
 pytest-xvfb
+webdriver-manager
