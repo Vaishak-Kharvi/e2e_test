@@ -2,10 +2,6 @@ name: Run Selenium On GitHub Action
 on:
   workflow_dispatch:
 
-permissions:
-  id-token: write
-  pages: write
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -24,9 +20,6 @@ jobs:
           google-chrome --version
           chromedriver --version
           readlink -f chromedriver
-
-      #      - name: Start Selenium docker grid setup
-      #        run: docker-compose -f "docker-compose.yml" up -d --build
 
       - name: Install requirements
         run: |
@@ -58,29 +51,10 @@ jobs:
           allure_report: allure-report
           allure_history: allure-history
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v2
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: allure-report/
-      - name: Deploy to GitHub Pages
-        id: unique-url
-        run: echo "::set-output name=url::https://vaishak-kharvi.github.io/e2e_test//$(date +'%Y%m%d%H%M%S')"
-      - name: Deploy
-        uses: actions/deploy-pages@v1
-
-      #      - name: Deploy report to Github Pages
-      #        if: always()
-      #        uses: peaceiris/actions-gh-pages@v2
-      #        env:
-      #          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #          PUBLISH_BRANCH: gh-pages
-      #          PUBLISH_DIR: allure-history
-#      - name: Deploy to GitHub Pages
-#        run: |
-#          git checkout --orphan gh-pages
-#          git --set-upstream-to=origin/gh-pages
-#          git add -A
-#          git commit -m "Publish to GitHub Pages"
-#          git push origin gh-pages --force
+      - name: Deploy report to Github Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v2
+        env:
+          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: allure-history
