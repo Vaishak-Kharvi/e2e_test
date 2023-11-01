@@ -33,7 +33,7 @@ jobs:
           sudo dpkg -i allure_2.24.1-1_all.deb
 
       - name: Running the Python script
-        run: pytest -m test_run -v -s --disable-warnings
+        run: pytest -m test_run -v -s --disable-warnings --alluredir=allure-results
 
       - name: Get Allure history
         uses: actions/checkout@v2
