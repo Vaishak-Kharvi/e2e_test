@@ -60,9 +60,9 @@ jobs:
         uses: actions/upload-pages-artifact@v1
         with:
           path: allure-report/
-        - name: Deploy to GitHub Pages
-          id: deployment
-          uses: actions/deploy-pages@v1
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
 
       #      - name: Deploy report to Github Pages
       #        if: always()
