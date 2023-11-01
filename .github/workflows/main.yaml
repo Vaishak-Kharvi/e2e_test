@@ -67,6 +67,7 @@ jobs:
       - name: Deploy to GitHub Pages
         id: unique-url
         run: echo "::set-output name=url::https://vaishak-kharvi.github.io/e2e_test//$(date +'%Y%m%d%H%M%S')"
+      - name: Deploy
         uses: actions/deploy-pages@v1
 
       #      - name: Deploy report to Github Pages
