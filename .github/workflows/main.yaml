@@ -5,6 +5,8 @@ on:
 permissions:
   id-token: write
   pages: write
+  actions: write
+  repository-projects: write
 
 jobs:
   build:
