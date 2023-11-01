@@ -65,8 +65,11 @@ jobs:
         with:
           path: allure-report/
       - name: Deploy to GitHub Pages
-        id: deployment
+        id: unique-url
+        run: echo "::set-output name=url::https://vaishak-kharvi.github.io/e2e_test//$(date +'%Y%m%d%H%M%S')"
         uses: actions/deploy-pages@v1
+      env:
+        UNIQUE_URL: ${{ steps.unique-url.outputs.url }}
 
       #      - name: Deploy report to Github Pages
       #        if: always()
