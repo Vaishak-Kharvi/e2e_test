@@ -51,17 +51,14 @@ jobs:
           allure_report: allure-report
           allure_history: allure-history
 
-      - name: Check out artifacts
-        uses: actions/checkout@v2
-        with:
-          ref: gh-pages
-
-      - name: upload
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: .
-          name: github-pages
-          retention-days: 1
+      - uses: actions/checkout@v4
+      - run: |
+          date > generated.txt
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "generated"
+          git push
 
 #      - name: Deploy report to Github Pages
 #        if: always()
