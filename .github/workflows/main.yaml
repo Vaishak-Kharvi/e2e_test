@@ -58,8 +58,8 @@ jobs:
           git add .
           git commit -m "generated"
           git push
-      with:
-        clean: false
+        with:
+          clean: false
 
 #      - name: Deploy report to Github Pages
 #        if: always()
