@@ -4,7 +4,7 @@ name: Deploy Jekyll with GitHub Pages dependencies preinstalled
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["gh-pages"]
+    branches: [ "gh-pages" ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -41,6 +41,7 @@ jobs:
         uses: actions/upload-pages-artifact@v2
 
   report-build:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: run gh
@@ -48,6 +49,8 @@ jobs:
           gh api -X POST "repos/$GITHUB_REPOSITORY/pages/telemetry" \
           -F github_run_id="$GITHUB_RUN_ID" \
           -F conclusion="$CONCLUSION"
+      env:
+        GH_TOKEN: ${{ github.token }}
 
   # Deployment job
   deploy:
