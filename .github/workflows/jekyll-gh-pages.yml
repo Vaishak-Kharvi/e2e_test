@@ -40,6 +40,15 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
 
+  report-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: run gh
+        run: |
+          gh api -X POST "repos/$GITHUB_REPOSITORY/pages/telemetry" \
+          -F github_run_id="$GITHUB_RUN_ID" \
+          -F conclusion="$CONCLUSION"
+
   # Deployment job
   deploy:
     environment:
