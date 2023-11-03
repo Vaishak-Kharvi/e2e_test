@@ -45,12 +45,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: run gh
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           gh api -X POST "repos/$GITHUB_REPOSITORY/pages/telemetry" \
           -F github_run_id="$GITHUB_RUN_ID" \
           -F conclusion="$CONCLUSION"
-      env:
-        GH_TOKEN: ${{ github.token }}
+      
 
   # Deployment job
   deploy:
