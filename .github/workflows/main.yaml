@@ -59,7 +59,7 @@ jobs:
           git config user.email github-actions@github.com
           git add allure-report
           git commit -m "generated"
-          git push origin gh-pages
+          git push origin gh-pages --force
 
 #      - name: Setup Pages
 #        uses: actions/configure-pages@v2
