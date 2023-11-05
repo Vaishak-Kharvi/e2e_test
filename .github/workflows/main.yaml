@@ -81,6 +81,7 @@ jobs:
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
+          git remote add origin https://github.com/Vaishak-Kharvi/e2e_test/tree/gh-pages
           git add allure-report
           git add allure-history
           git commit -m "Auto-commit by GitHub Actions"
