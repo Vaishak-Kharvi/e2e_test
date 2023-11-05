@@ -44,6 +44,7 @@ jobs:
         with:
           ref: gh-pages
           path: gh-pages
+        run: ls
 
       - name: Copy folder to destination
         run: |
