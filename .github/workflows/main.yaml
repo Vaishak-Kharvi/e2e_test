@@ -52,10 +52,10 @@ jobs:
           git rev-parse --abbrev-ref HEAD
           git fetch
           git checkout gh-pages
-          cp -r new-allure-results/* .
+          cp -r new-folder/* .
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git add new-allire-results
+          git add new-folder
           git commit -m "copied folder to source"
           git push origin gh-pages
         env:
