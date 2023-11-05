@@ -49,6 +49,7 @@ jobs:
         run: |
           cd gh-pages
           ls
+          git rev-parse --abbrev-ref HEAD
           git fetch
           git checkout gh-pages
           cp -r new-allure-results/* .
