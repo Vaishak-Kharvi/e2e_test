@@ -33,9 +33,9 @@ jobs:
       - name: Running the Python script
         run: |
           pytest -m test_run -v -s --disable-warnings --alluredir=allure-results
-          ls
           mkdir -p new-folder
           cp -r allure-results/* new-folder
+          ls
 
       - name: Get Allure history
         uses: actions/checkout@v2
@@ -47,9 +47,6 @@ jobs:
 
       - name: Copy folder to destination
         run: |
-          cd gh-pages
-          ls
-          git rev-parse --abbrev-ref HEAD
           git fetch
           git checkout gh-pages
           cp -r new-folder/* .
