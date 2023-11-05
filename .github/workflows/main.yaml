@@ -48,6 +48,8 @@ jobs:
       - name: Copy folder to destination
         run: |
           ls
+          cd gh-pages
+          ls
           git fetch
           git checkout gh-pages
           cp -r new-allure-results/* .
