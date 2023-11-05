@@ -33,6 +33,7 @@ jobs:
       - name: Running the Python script
         run: |
           pytest -m test_run -v -s --disable-warnings --alluredir=allure-results
+          ls
 #          mkdir -p new-folder
 #          cp -r allure-results/* new-folder
 
@@ -70,6 +71,7 @@ jobs:
 
       - name: Check files
         run: |
+          git rev-parse --abbrev-ref HEAD
           pwd
           ls
           cd gh-pages
