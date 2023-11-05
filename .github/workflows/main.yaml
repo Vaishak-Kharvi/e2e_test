@@ -48,7 +48,7 @@ jobs:
       - name: Copy folder to destination
         run: |
           git fetch
-          git checkout gh-pages
+          git checkout gh-pages--
           cp -r new-folder/* .
           ls
           git config user.name github-actions
