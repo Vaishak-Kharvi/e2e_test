@@ -47,7 +47,6 @@ jobs:
 
       - name: Copy folder to destination
         run: |
-          ls
           cd gh-pages
           ls
           git fetch
