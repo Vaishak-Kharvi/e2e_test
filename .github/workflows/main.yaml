@@ -78,7 +78,10 @@ jobs:
           allure_history: allure-history
 
       - name: Check files
-        run: ls
+        run: |
+          ls
+          cd gh-pages
+          ls
 #
 #      - uses: actions/checkout@v4
 #        with:
