@@ -41,13 +41,13 @@ jobs:
         uses: actions/checkout@v2
         if: always()
         continue-on-error: true
-        run: ls
         with:
           ref: gh-pages
           path: gh-pages
 
       - name: Copy folder to destination
         run: |
+          ls
           git fetch
           git checkout gh-pages
           cp -r new-allure-results/* .
