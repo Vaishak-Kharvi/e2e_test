@@ -41,6 +41,8 @@ jobs:
           git fetch
           git checkout gh-pages
           cp -r new-allure-results/* .
+          git config user.name github-actions
+          git config user.email github-actions@github.com
           git add .
           git commit -m "copied folder to source"
           git push origin gh-pages
