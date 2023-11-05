@@ -37,11 +37,10 @@ jobs:
         run: |
           ls
           mkdir -p new-allure-results
-          ls
           cp -r allure-results/* new-allure-results/
           git fetch
           git checkout gh-pages
-          cp -r new-allure-results/*
+          cp -r new-allure-results/* .
           git add .
           git commit -m "copied folder to source"
           git push origin gh-pages
