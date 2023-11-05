@@ -31,37 +31,42 @@ jobs:
           sudo dpkg -i allure_2.24.1-1_all.deb
 
       - name: Running the Python script
-        run: pytest -m test_run -v -s --disable-warnings --alluredir=allure-results
-
-      - name: Get Allure history
-        uses: actions/checkout@v2
-        if: always()
-        continue-on-error: true
-        with:
-          ref: gh-pages
-          path: gh-pages
-
-      - name: Allure Report action from marketplace
-        uses: simple-elf/allure-report-action@master
-        if: always()
-        id: allure-report
-        with:
-          allure_results: target/allure-results
-          gh_pages: gh-pages
-          allure_report: allure-report
-          allure_history: allure-history
-
-      - uses: actions/checkout@v4
-        with:
-          clean: false
-      - run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git fetch
+        run: |
+          pytest -m test_run -v -s --disable-warnings --alluredir=allure-results
+          cp -r allure-results/* new-allure-results/
           git checkout gh-pages
-          git add ./allure-report
-          git commit -m "generated"
-          git push origin gh-pages --force
+          cp -r new-allure-results/*
+          git add .
+          git commit -m "copied folder to source"
+          git push origin gh-pages
+#
+#      - name: Get Allure history
+#        uses: actions/checkout@v2
+#        if: always()
+#        continue-on-error: true
+#        with:
+#          ref: gh-pages
+#          path: gh-pages
+#
+#      - name: Allure Report action from marketplace
+#        uses: simple-elf/allure-report-action@master
+#        if: always()
+#        id: allure-report
+#        with:
+#          allure_results: target/allure-results
+#          gh_pages: gh-pages
+#          allure_report: allure-report
+#          allure_history: allure-history
+#
+#      - uses: actions/checkout@v4
+#        with:
+#          clean: false
+#      - run: |
+#          git config user.name github-actions
+#          git config user.email github-actions@github.com
+#          git add ./allure-report
+#          git commit -m "generated"
+#          git push origin gh-pages --force
 
 #      - name: Setup Pages
 #        uses: actions/configure-pages@v2
