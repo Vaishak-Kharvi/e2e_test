@@ -31,13 +31,22 @@ jobs:
           sudo dpkg -i allure_2.24.1-1_all.deb
 
       - name: Running the Python script
-        run: pytest -m test_run -v -s --disable-warnings --alluredir=allure-results
+        run: |
+          pytest -m test_run -v -s --disable-warnings --alluredir=allure-results
+          ls
+          mkdir -p new-folder
+          cp -r allure-results/* new-folder
+
+      - name: Get Allure history
+        uses: actions/checkout@v2
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
 
       - name: Copy folder to destination
         run: |
-          ls
-          mkdir -p new-allure-results
-          cp -r allure-results/* new-allure-results/
           git fetch
           git checkout gh-pages
           cp -r new-allure-results/* .
