@@ -84,7 +84,6 @@ jobs:
           git add allure-report
           git add allure-history
           git commit -m "Auto-commit by GitHub Actions"
-          git remote add origin gh-pages
           git push -u -f origin gh-pages
 #
 #      - uses: actions/checkout@v4
