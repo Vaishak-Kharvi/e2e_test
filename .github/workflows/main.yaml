@@ -76,14 +76,14 @@ jobs:
           ls
           cd allure-history
           ls
-#      - name: Commit
-#        run: |
-#          git config --global user.name "GitHub Actions"
-#          git config --global user.email "actions@github.com"
-#          git add allure-report
-#          git add allure-history
-#          git commit -m "Auto-commit by GitHub Actions"
-#          git push
+
+      - name: Commit
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add allure-history
+          git commit -m "Auto-commit by GitHub Actions"
+          git push
 #
 #      - uses: actions/checkout@v4
 #        with:
@@ -105,11 +105,11 @@ jobs:
 #      - name: Deploy to GitHub Pages
 #        id: deployment
 #        uses: actions/deploy-pages@v1
-
-      - name: Deploy report to Github Pages
-        if: always()
-        uses: peaceiris/actions-gh-pages@v2
-        env:
-          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: allure-history
+#
+#      - name: Deploy report to Github Pages
+#        if: always()
+#        uses: peaceiris/actions-gh-pages@v2
+#        env:
+#          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#          PUBLISH_BRANCH: gh-pages
+#          PUBLISH_DIR: allure-history
