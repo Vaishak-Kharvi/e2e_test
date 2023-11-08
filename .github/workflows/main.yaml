@@ -81,7 +81,7 @@ jobs:
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          mv allure-history gh-pages/allure-history
+          cp -r allure-history gh-pages/allure-history
           git add .
           git commit -m "test"
           git push
