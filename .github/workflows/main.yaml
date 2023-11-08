@@ -81,8 +81,11 @@ jobs:
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          git checkout -b gh-pages
-          git status
+          mv allure-history gh-pages/allure-history
+          git add .
+          git commit -m "test"
+          git push
+        working-directory: ${{ github.workspace }}
 
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
