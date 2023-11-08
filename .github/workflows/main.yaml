@@ -79,13 +79,13 @@ jobs:
 
       - name: Commit
         run: |
-          #git config --global user.name "GitHub Actions"
-          #git config --global user.email "actions@github.com"
-          ls
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git remote add embedded "https://github.com/Vaishak-Kharvi/e2e_test.git"
+          git checkout -b gh-pages
           git add .
-          git status
-          git commit -m --allow-empty "Auto-commit by GitHub Actions"
-          git push
+          git commit -m "auto-push"
+          git push embedded gh-pages
 #
 #      - uses: actions/checkout@v4
 #        with:
