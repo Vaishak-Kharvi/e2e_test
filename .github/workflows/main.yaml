@@ -85,8 +85,6 @@ jobs:
           cd gh-pages
           ls
           git submodule status
-          git submodule add .
-          git submodule status
 
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
