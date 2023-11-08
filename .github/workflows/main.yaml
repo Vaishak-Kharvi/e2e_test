@@ -81,11 +81,12 @@ jobs:
         run: |
           #git config --global user.name "GitHub Actions"
           #git config --global user.email "actions@github.com"
-          git remote rm origin
-          git remote add "https://github.com/Vaishak-Kharvi/e2e_test/tree/gh-pages"
-          git add --all
+          cd allure-history
+          ls
+          git add --A
+          git status
           git commit -m --allow-empty "Auto-commit by GitHub Actions"
-          git push gh-pages
+          git push
 #
 #      - uses: actions/checkout@v4
 #        with:
