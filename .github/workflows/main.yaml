@@ -86,6 +86,8 @@ jobs:
           git add .
           git commit -m "auto-push"
           git push embedded gh-pages
+        env:
+          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #
 #      - uses: actions/checkout@v4
 #        with:
