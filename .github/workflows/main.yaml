@@ -87,6 +87,8 @@ jobs:
           git submodule update --remote --init
           git status
           git add ./allure-history
+          git commit -m "test"
+          git push
 
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
