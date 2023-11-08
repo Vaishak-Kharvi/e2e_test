@@ -1,0 +1,4 @@
+2023-11-08 19:07:26 INFO ====== WebDriver manager ======
+2023-11-08 19:07:26 INFO Get LATEST chromedriver version for google-chrome
+2023-11-08 19:07:26 INFO Get LATEST chromedriver version for google-chrome
+2023-11-08 19:07:26 INFO Driver [/home/runner/.wdm/drivers/chromedriver/linux64/118.0.5993.70/chromedriver-linux64/chromedriver] found in cache
