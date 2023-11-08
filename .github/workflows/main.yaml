@@ -84,7 +84,8 @@ jobs:
           cp -r allure-history gh-pages/.
           cd gh-pages
           ls
-          git submodule status
+          git status
+          git add ./allure-history
 
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
