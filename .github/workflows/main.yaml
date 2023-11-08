@@ -84,6 +84,10 @@ jobs:
           cp -r allure-history gh-pages/allure-history
           cd gh-pages
           ls
+          git status
+          git add .
+          git commit -m "test"
+          git push
 #
 #      - uses: actions/checkout@v4
 #        with:
