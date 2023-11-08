@@ -84,11 +84,9 @@ jobs:
           cp -r allure-history gh-pages/.
           cd gh-pages
           ls
-          git status
+          git submodule status
           git submodule add .
-          git status
-          git submodule commit -m "auto commit"
-          git push
+          git submodule status
 
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
