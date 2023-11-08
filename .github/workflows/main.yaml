@@ -85,7 +85,7 @@ jobs:
           cd gh-pages
           ls
           git status
-          git submodule add allure-history
+          git submodule add .
           git submodule commit -m "auto commit"
           git push
 
