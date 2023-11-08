@@ -84,6 +84,7 @@ jobs:
           cp -r allure-history gh-pages/.
           cd gh-pages
           ls
+          git submodule update --remote --init
           git status
           git add ./allure-history
 
