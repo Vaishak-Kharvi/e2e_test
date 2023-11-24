@@ -36,6 +36,8 @@ jobs:
           ls
           mkdir -p new-folder
           cp -r allure-results/* new-folder
+          cd allure-results
+          ls
 
       - name: Copy folder to destination
         run: |
