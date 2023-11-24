@@ -94,11 +94,11 @@ jobs:
         run: |
           git fetch
           git checkout -f gh-pages
-          cp -r new-folder/* .
+          cp -r allure-history/* .
           ls
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git add new-folder
+          git add allure-history
           git commit -m "copied folder to source"
           git push origin gh-pages
         env:
