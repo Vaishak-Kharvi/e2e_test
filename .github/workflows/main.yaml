@@ -78,7 +78,7 @@ jobs:
 
           echo "generating report from allure-results to allure-report ..."
           #ls -l allure-results
-          allure generate --clean allure-results -o allure-reports
+          allure generate --clean allure-results -o allure-report
           #echo "listing report directory ..."
           #ls -l ${INPUT_ALLURE_REPORT}
 
