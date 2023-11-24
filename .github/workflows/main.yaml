@@ -88,6 +88,8 @@ jobs:
           cp -r ./allure-report/history/. ./allure-history/last-history
           cd allure-history
           ls
+          cd 111
+          ls
           
 
       - name: Copy folder to destination
