@@ -37,6 +37,14 @@ jobs:
       #          mkdir -p new-folder
       #          cp -r allure-results/* new-folder
 
+      - name: Get Allure history
+          uses: actions/checkout@v2
+          if: always()
+          continue-on-error: true
+          with:
+            ref: gh-pages
+            path: gh-pages
+
       - name: Generate Report
         run: |
           mkdir -p ./gh-pages
