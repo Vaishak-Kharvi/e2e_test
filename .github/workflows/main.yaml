@@ -101,7 +101,7 @@ jobs:
           git add allure-history
           git status
           git commit -m "test commit"
-          git push
+          git push origin gh-pages
 #          git fetch
 #          git checkout -f gh-pages
 #          ls
