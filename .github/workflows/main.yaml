@@ -49,21 +49,25 @@ jobs:
           ref: gh-pages
           path: gh-pages
 
-      - name: Allure Report action from marketplace
-        uses: simple-elf/allure-report-action@master
-        if: always()
-        id: allure-report
-        with:
-          allure_results: target/allure-results
-          gh_pages: gh-pages
-          allure_report: allure-report
-          allure_history: allure-history
+#      - name: Allure Report action from marketplace
+#        uses: simple-elf/allure-report-action@master
+#        if: always()
+#        id: allure-report
+#        with:
+#          allure_results: target/allure-results
+#          gh_pages: gh-pages
+#          allure_report: allure-report
+#          allure_history: allure-history
 
-#      - name: Generate Report
-#        run: |
-#          mkdir -p ./gh-pages
-#          mkdir -p ./allure-history
-#          cp -r ./gh-pages/. ./allure-history
+      - name: Generate Report
+        run: |
+          mkdir -p ./gh-pages
+          mkdir -p ./allure-history
+          cp -r ./gh-pages/. ./allure-history
+          echo "Check files inside gh-pages
+          ls ./gh-pages/.
+          echo "Check files inside allure-history 
+          ls ./allure-history/.
 #          echo "Displaying files inside allure-history"
 #          ls allure-history/
 #          REPO_OWNER_SLASH_NAME=${{ github.repository}}
