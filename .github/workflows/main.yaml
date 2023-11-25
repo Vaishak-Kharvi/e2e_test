@@ -94,11 +94,11 @@ jobs:
           cd allure-history
           ls
 
-#      - name: Copy folder to destination
-#        run: |
-#          git config user.name github-actions
-#          git config user.email github-actions@github.com
-#          ls allure-history
+      - name: Copy folder to destination
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          ls allure-history
 #          git add allure-history
 #          git status
 #          git commit -m "test commit"
