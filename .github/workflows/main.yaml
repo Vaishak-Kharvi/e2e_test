@@ -64,6 +64,15 @@ jobs:
           echo "Github pages url $GITHUB_PAGES_WEBSITE_URL"
           ls
           
+          if [[ '' != '' ]]; then
+          INPUT_ALLURE_HISTORY="allure-history/''"
+          INPUT_GH_PAGES="gh-pages/''"
+          echo "NEW allure history folder allure-history"
+          mkdir -p ./allure-history
+          GITHUB_PAGES_WEBSITE_URL="${GITHUB_PAGES_WEBSITE_URL}/''"
+          echo "NEW github pages url ${GITHUB_PAGES_WEBSITE_URL}"
+          fi
+          
           COUNT=$( ( ls ./allure-history | wc -l ) )
           echo "count folders in allure-history: ${COUNT}"
           echo "keep reports count 20"
