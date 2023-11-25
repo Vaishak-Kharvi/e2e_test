@@ -96,11 +96,13 @@ jobs:
 
       - name: Copy folder to destination
         run: |
+          git fetch
+          git checkout -f gh-pages
+          cp -r allure-history/* .
           git config user.name github-actions
           git config user.email github-actions@github.com
           ls allure-history
           git add allure-history
-          git status
           git commit -m "test commit"
           git push origin gh-pages
         env:
