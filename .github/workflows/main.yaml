@@ -53,7 +53,7 @@ jobs:
         run: |
           mkdir -p ./gh-pages
           mkdir -p ./allure-history
-          cp -r * ./gh-pages/. ./allure-history
+          cp -r ./gh-pages/. ./allure-history
           ls ./allure-history
           REPO_OWNER_SLASH_NAME=${{ github.repository}}
           echo "$REPO_OWNER_SLASH_NAME"
