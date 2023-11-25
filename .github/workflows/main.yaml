@@ -65,9 +65,9 @@ jobs:
           mkdir -p ./allure-history
           cp -r ./gh-pages/. ./allure-history
           echo "Check files inside gh-pages
-          ls ./gh-pages/.
+          ls gh-pages
           echo "Check files inside allure-history 
-          ls ./allure-history/.
+          ls allure-history
 #          echo "Displaying files inside allure-history"
 #          ls allure-history/
 #          REPO_OWNER_SLASH_NAME=${{ github.repository}}
