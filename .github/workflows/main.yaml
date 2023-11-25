@@ -67,7 +67,6 @@ jobs:
           COUNT=$( ( ls ./allure-history | wc -l ) )
           echo "count folders in allure-history: ${COUNT}"
           echo "keep reports count 20"
-          INPUT_KEEP_REPORTS= $(20 + 1)
           echo "if ${COUNT} > 20"
           if (( COUNT > 20 )); then
           cd ./allure-history
