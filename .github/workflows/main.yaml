@@ -39,6 +39,20 @@ jobs:
       #          mkdir -p new-folder
       #          cp -r allure-results/* new-folder
 
+      - name: Check out to GH page
+        run: |
+          git fetch
+          git checkout -f gh-pages --
+          ls
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add allure-res
+          git commit -m "test commit"
+          git push origin gh-pages
+        env:
+         destination-branch: gh-pages
+
+
 
 #      - name: Get Allure history
 #        uses: actions/checkout@v2
