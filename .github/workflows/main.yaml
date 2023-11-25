@@ -149,7 +149,6 @@ jobs:
           git config user.name github-actions
           git config user.email github-actions@github.com
           cd allure-history
-          ls
           git status
           git add *
           git commit -m "test commit"
