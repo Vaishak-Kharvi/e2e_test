@@ -151,8 +151,7 @@ jobs:
           cd allure-history
           ls
           git status
-          git add ${{ github.run_number }}
-          git add index.html
+          git add *
           git commit -m "test commit"
           git push origin gh-pages
         env:
