@@ -34,7 +34,7 @@ jobs:
         run: |
           pytest -m test_run -v -s --disable-warnings --alluredir=allure-results
           mkdir -p allure-res
-          cp -r alure-results/* allure-res
+          cp -r allure-results/* allure-res
 
       #          ls
       #          mkdir -p new-folder
