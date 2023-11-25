@@ -96,8 +96,8 @@ jobs:
           git status
           git add allure-history
           git status
-          git commit -m "ghpage commit"
-          git push
+#          git commit -m "ghpage commit"
+#          git push
 #          git fetch
 #          git checkout -f gh-pages
 #          cp -r allure-history/* .
