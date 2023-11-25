@@ -54,7 +54,6 @@ jobs:
           mkdir -p ./gh-pages
           mkdir -p ./allure-history
           cp -r ./gh-pages/. ./allure-history
-          ls
           cd gh-pages
           ls
           echo "Displaying files inside allure-history"
