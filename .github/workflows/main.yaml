@@ -33,8 +33,8 @@ jobs:
       - name: Running the Python script
         run: |
           pytest -m test_run -v -s --disable-warnings --alluredir=allure-results
-#          mkdir -p allure-res
-#          cp -r allure-results/* allure-res
+      #          mkdir -p allure-res
+      #          cp -r allure-results/* allure-res
 
       #          ls
       #          mkdir -p new-folder
@@ -45,71 +45,71 @@ jobs:
           git checkout -f gh-pages
           ls
           git status
-#
-#      - name: Get Allure history
-#        uses: actions/checkout@v2
-#        if: always()
-#        continue-on-error: true
-#        with:
-#          ref: gh-pages
-#          path: gh-pages
-
-#      - name: Generate Report
-#        run: |
-#          mkdir -p ./gh-pages
-#          mkdir -p ./allure-history
-#          cp -r ./gh-pages/. ./allure-history
-#          REPO_OWNER_SLASH_NAME=${{ github.repository}}
-#          echo "$REPO_OWNER_SLASH_NAME"
-#          REPOSITORY_NAME=${REPO_OWNER_SLASH_NAME##*/}
-#          echo "$REPOSITORY_NAME"
-#          GITHUB_PAGES_WEBSITE_URL="https://${{ github.repository_owner }}.github.io/${REPOSITORY_NAME}"
-#          echo "Github pages url $GITHUB_PAGES_WEBSITE_URL"
-#          ls
-#
-#          echo "<!DOCTYPE html><meta charset=\"utf-8\"><meta http-equiv=\"refresh\" content=\"0; URL=${GITHUB_PAGES_WEBSITE_URL}/111/\">" > ./allure-history/index.html # path
-#          echo "<meta http-equiv=\"Pragma\" content=\"no-cache\"><meta http-equiv=\"Expires\" content=\"0\">" >> ./allure-history/index.html
-#          #cat ./${INPUT_ALLURE_HISTORY}/index.html
-#
-#          #echo "executor.json"
-#          echo '{"name":"GitHub Actions","type":"github","reportName":"Allure Report with history",' > executor.json
-#          echo "\"url\":\"${GITHUB_PAGES_WEBSITE_URL}\"," >> executor.json # ???
-#          echo "\"reportUrl\":\"${GITHUB_PAGES_WEBSITE_URL}/111/\"," >> executor.json
-#          echo "\"buildUrl\":\"https://github.com/${{ github.repository }}/actions/runs/111\"," >> executor.json
-#          echo "\"buildName\":\"GitHub Actions Run #111\",\"buildOrder\":\"111\"}" >> executor.json
-#          #cat executor.json
-#          mv ./executor.json ./allure-result
-#
-#          echo "URL=${GITHUB_PAGES_WEBSITE_URL}" >> ./allure-results/environment.properties
-#
-#          echo "keep allure history from gh-pages/last-history to allure-results/history"
-#          cp -r ./gh-pages/last-history/. ./allure-results/history
-#
-#          echo "generating report from allure-results to allure-report ..."
-#          #ls -l allure-results
-#          allure generate --clean allure-results -o allure-report
-#          #echo "listing report directory ..."
-#          #ls -l ${INPUT_ALLURE_REPORT}
-#
-#          echo "copy allure-report to allure-history/111"
-#          cp -r ./allure-report/. ./allure-history/111
-#          echo "copy allure-report history to /allure-history/last-history"
-#          cp -r ./allure-report/history/. ./allure-history/last-history
-#          cd allure-history
-#          ls
+          #
+          #      - name: Get Allure history
+          #        uses: actions/checkout@v2
+          #        if: always()
+          #        continue-on-error: true
+          #        with:
+          #          ref: gh-pages
+          #          path: gh-pages
           
+          #      - name: Generate Report
+          #        run: |
+          #          mkdir -p ./gh-pages
+          #          mkdir -p ./allure-history
+          #          cp -r ./gh-pages/. ./allure-history
+          #          REPO_OWNER_SLASH_NAME=${{ github.repository}}
+          #          echo "$REPO_OWNER_SLASH_NAME"
+          #          REPOSITORY_NAME=${REPO_OWNER_SLASH_NAME##*/}
+          #          echo "$REPOSITORY_NAME"
+          #          GITHUB_PAGES_WEBSITE_URL="https://${{ github.repository_owner }}.github.io/${REPOSITORY_NAME}"
+          #          echo "Github pages url $GITHUB_PAGES_WEBSITE_URL"
+          #          ls
+          #
+          #          echo "<!DOCTYPE html><meta charset=\"utf-8\"><meta http-equiv=\"refresh\" content=\"0; URL=${GITHUB_PAGES_WEBSITE_URL}/111/\">" > ./allure-history/index.html # path
+          #          echo "<meta http-equiv=\"Pragma\" content=\"no-cache\"><meta http-equiv=\"Expires\" content=\"0\">" >> ./allure-history/index.html
+          #          #cat ./${INPUT_ALLURE_HISTORY}/index.html
+          #
+          #          #echo "executor.json"
+          #          echo '{"name":"GitHub Actions","type":"github","reportName":"Allure Report with history",' > executor.json
+          #          echo "\"url\":\"${GITHUB_PAGES_WEBSITE_URL}\"," >> executor.json # ???
+          #          echo "\"reportUrl\":\"${GITHUB_PAGES_WEBSITE_URL}/111/\"," >> executor.json
+          #          echo "\"buildUrl\":\"https://github.com/${{ github.repository }}/actions/runs/111\"," >> executor.json
+          #          echo "\"buildName\":\"GitHub Actions Run #111\",\"buildOrder\":\"111\"}" >> executor.json
+          #          #cat executor.json
+          #          mv ./executor.json ./allure-result
+          #
+          #          echo "URL=${GITHUB_PAGES_WEBSITE_URL}" >> ./allure-results/environment.properties
+          #
+          #          echo "keep allure history from gh-pages/last-history to allure-results/history"
+          #          cp -r ./gh-pages/last-history/. ./allure-results/history
+          #
+          #          echo "generating report from allure-results to allure-report ..."
+          #          #ls -l allure-results
+          #          allure generate --clean allure-results -o allure-report
+          #          #echo "listing report directory ..."
+          #          #ls -l ${INPUT_ALLURE_REPORT}
+          #
+          #          echo "copy allure-report to allure-history/111"
+          #          cp -r ./allure-report/. ./allure-history/111
+          #          echo "copy allure-report history to /allure-history/last-history"
+          #          cp -r ./allure-report/history/. ./allure-history/last-history
+          #          cd allure-history
+          #          ls
+
 
       - name: Copy folder to destination
         run: |
-          git fetch
-          git checkout -f gh-pages
-#          cp -r allure-history/* .
-          ls
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add allure-history
-          git commit -m "copied folder to source"
-          git push origin gh-pages
+               git fetch
+               git checkout -f gh-pages
+          #          cp -r allure-history/* .
+               ls
+               git config user.name github-actions
+               git config user.email github-actions@github.com
+               git add allure-history
+               git commit -m "copied folder to source"
+               git push origin gh-pages
         env:
           destination-branch: gh-pages
 ##
