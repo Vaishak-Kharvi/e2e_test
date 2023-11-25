@@ -148,7 +148,7 @@ jobs:
           git checkout -f gh-pages --
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git add *
+          git add index.html
           git commit -m "test commit"
           git push origin gh-pages
         env:
