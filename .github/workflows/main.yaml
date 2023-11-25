@@ -41,6 +41,8 @@ jobs:
       #          cp -r allure-results/* new-folder
       - name: Check out to GH-PAGE
         run: |
+          git fetch
+          git checkout -f gh-pages
           ls
 #
 #      - name: Get Allure history
