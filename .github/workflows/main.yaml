@@ -41,6 +41,7 @@ jobs:
           git fetch
           git checkout -f gh-pages
           mkdir -p ./allure-history
+          ls
           cp -r . ./allure-history
           ls ./allure-history
 
