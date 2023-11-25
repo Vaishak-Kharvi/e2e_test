@@ -36,6 +36,14 @@ jobs:
 #          mkdir -p allure-res
 #          cp -r allure-results/* allure-res
 
+      - name: Generate Report
+        run: |
+          git fetch
+          git checkout -f gh-pages
+          mkdir -p ./allure-history
+          cp -r * ./allure-history
+          ls ./allure-history
+
       #          ls
       #          mkdir -p new-folder
       #          cp -r allure-results/* new-folder
@@ -61,14 +69,14 @@ jobs:
 #          ref: gh-pages
 #          path: gh-pages
 
-      - name: Generate Report
-        run: |
-          git fetch
-          git checkout -f gh-pages
-#          mkdir -p ./gh-pages
-          mkdir -p ./allure-history
-          cp -r * ./allure-history
-          ls ./allure-history
+#      - name: Generate Report
+#        run: |
+#          git fetch
+#          git checkout -f gh-pages
+##          mkdir -p ./gh-pages
+#          mkdir -p ./allure-history
+#          cp -r * ./allure-history
+#          ls ./allure-history
 #          REPO_OWNER_SLASH_NAME=${{ github.repository}}
 #          echo "$REPO_OWNER_SLASH_NAME"
 #          REPOSITORY_NAME=${REPO_OWNER_SLASH_NAME##*/}
