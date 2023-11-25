@@ -39,18 +39,18 @@ jobs:
       #          ls
       #          mkdir -p new-folder
       #          cp -r allure-results/* new-folder
-      - name: Check out to GH-PAGE
-        run: |
-          git fetch
-          git checkout -f gh-pages
-          ls
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add allure-results
-          git commit -m "copied folder to source"
-          git push origin gh-pages
-        env:
-          destination-branch: gh-pages
+#      - name: Check out to GH-PAGE
+#        run: |
+#          git fetch
+#          git checkout -f gh-pages
+#          ls
+#          git config user.name github-actions
+#          git config user.email github-actions@github.com
+#          git add allure-results
+#          git commit -m "copied folder to source"
+#          git push origin gh-pages
+#        env:
+#          destination-branch: gh-pages
 
 #
 #      - name: Get Allure history
@@ -61,11 +61,14 @@ jobs:
 #          ref: gh-pages
 #          path: gh-pages
 
-#      - name: Generate Report
-#        run: |
+      - name: Generate Report
+        run: |
+          git fetch
+          git checkout -f gh-pages
 #          mkdir -p ./gh-pages
-#          mkdir -p ./allure-history
-#          cp -r ./gh-pages/. ./allure-history
+          mkdir -p ./allure-history
+          cp -r * ./allure-history
+          ls ./allure-history
 #          REPO_OWNER_SLASH_NAME=${{ github.repository}}
 #          echo "$REPO_OWNER_SLASH_NAME"
 #          REPOSITORY_NAME=${REPO_OWNER_SLASH_NAME##*/}
@@ -104,7 +107,7 @@ jobs:
 #          cp -r ./allure-report/history/. ./allure-history/last-history
 #          cd allure-history
 #          ls
-          
+#
 
 #      - name: Copy folder to destination
 #        run: |
