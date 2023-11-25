@@ -54,7 +54,7 @@ jobs:
           mkdir -p ./gh-pages
           mkdir -p ./allure-history
           cp -r ./gh-pages/. ./allure-history
-          ls ./gh-pages
+          ls gh-pages
           echo "Displaying files inside allure-history"
           ls allure-history/
           REPO_OWNER_SLASH_NAME=${{ github.repository}}
@@ -63,7 +63,6 @@ jobs:
           echo "$REPOSITORY_NAME"
           GITHUB_PAGES_WEBSITE_URL="https://${{ github.repository_owner }}.github.io/${REPOSITORY_NAME}"
           echo "Github pages url $GITHUB_PAGES_WEBSITE_URL"
-          ls
           
           if [[ '' != '' ]]; then
           INPUT_ALLURE_HISTORY="allure-history/''"
