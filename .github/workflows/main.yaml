@@ -99,9 +99,10 @@ jobs:
           git fetch
           git checkout -f gh-pages --
           cp -r allure-history/* .
+          ls
           git config user.name github-actions
           git config user.email github-actions@github.com
-          ls allure-history
+          ls allure-history/*
           git add allure-history
           git commit -m "test commit"
           git push origin gh-pages
