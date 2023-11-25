@@ -101,13 +101,13 @@ jobs:
           ls
           cp -r allure-history/* .
           ls
-#          git config user.name github-actions
-#          git config user.email github-actions@github.com
-#          ls
-#          git commit -m "test commit"
-#          git push origin gh-pages
-#        env:
-#          destination-branch: gh-pages
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add *
+          git commit -m "test commit"
+          git push origin gh-pages
+        env:
+         destination-branch: gh-pages
 #          git fetch
 #          git checkout -f gh-pages
 #          ls
