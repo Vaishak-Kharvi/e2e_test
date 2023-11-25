@@ -103,6 +103,8 @@ jobs:
           git status
           git commit -m "test commit"
           git push origin gh-pages
+        end:
+          destination-branch: gh-pages
 #          git fetch
 #          git checkout -f gh-pages
 #          ls
