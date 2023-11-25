@@ -33,6 +33,7 @@ jobs:
       - name: Running the Python script
         run: |
           pytest -m test_run -v -s --disable-warnings --alluredir=allure-results
+
       #          ls
       #          mkdir -p new-folder
       #          cp -r allure-results/* new-folder
@@ -88,23 +89,26 @@ jobs:
           cp -r ./allure-report/history/. ./allure-history/last-history
           cd allure-history
           ls
-          cd 111
-          ls
           
 
       - name: Copy folder to destination
         run: |
-          git fetch
-          git checkout -f gh-pages
-          cp -r allure-history/* .
-          ls
-          git config user.name github-actions
-          git config user.email github-actions@github.com
+          git status
           git add allure-history
-          git commit -m "copied folder to source"
-          git push origin gh-pages
-        env:
-          destination-branch: gh-pages
+          git status
+          git commit -m "ghpage commit"
+          git push
+#          git fetch
+#          git checkout -f gh-pages
+#          cp -r allure-history/* .
+#          ls
+#          git config user.name github-actions
+#          git config user.email github-actions@github.com
+#          git add allure-history
+#          git commit -m "copied folder to source"
+#          git push origin gh-pages
+#        env:
+#          destination-branch: gh-pages
 ##
 #      - name: Get Allure history
 #        uses: actions/checkout@v2
