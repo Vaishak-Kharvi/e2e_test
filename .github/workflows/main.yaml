@@ -33,18 +33,23 @@ jobs:
       - name: Running the Python script
         run: |
           pytest -m test_run -v -s --disable-warnings --alluredir=allure-results
+          mkdir -p allure-res
+          cp -r alure-results/* allure-res
 
       #          ls
       #          mkdir -p new-folder
       #          cp -r allure-results/* new-folder
-
-      - name: Get Allure history
-        uses: actions/checkout@v2
-        if: always()
-        continue-on-error: true
-        with:
-          ref: gh-pages
-          path: gh-pages
+      - name: Check out to GH-PAGE
+        run: |
+          ls
+#
+#      - name: Get Allure history
+#        uses: actions/checkout@v2
+#        if: always()
+#        continue-on-error: true
+#        with:
+#          ref: gh-pages
+#          path: gh-pages
 
       - name: Generate Report
         run: |
@@ -91,11 +96,11 @@ jobs:
           ls
           
 
-      - name: Copy folder to destination
-        run: |
-          git status
-          git add allure-history
-          git status
+#      - name: Copy folder to destination
+#        run: |
+#          git status
+#          git add allure-history
+#          git status
 #          git commit -m "ghpage commit"
 #          git push
 #          git fetch
