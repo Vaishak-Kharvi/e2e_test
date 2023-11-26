@@ -117,7 +117,7 @@ jobs:
       - name: Checking
         run: |
           ls ./gh-pages
-          rm -r gh-pages
+          rm -r gh-pages/
           cp -r allure-history/* gh-pages/
           echo "Inside gh-pages"
           ls ./gh-pages
