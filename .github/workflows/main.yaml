@@ -39,11 +39,8 @@ jobs:
           ls
           echo "Checking inside run number dir"
           ls ./${{ github.run_number }}
-#          mkdir -p allure-res
-#          cp -r allure-results/* allure-res
-#          ls allure-res
-      #          mkdir -p new-folder
-      #          cp -r allure-results/* new-folder
+          echo "Checking inside history dir"
+          ls ./${{ github.run_number }}/history
 
 #      - name: Check out to GH page
 #        run: |
