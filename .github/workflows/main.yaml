@@ -57,6 +57,8 @@ jobs:
           ls
           echo "Inside gh-pages"
           ls ./gh-pages/
+          echo "Inside allure-history"
+          ls ./allure-history/
 
       - name: Deploy report to Github Pages
         if: always()
