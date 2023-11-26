@@ -63,9 +63,6 @@ jobs:
           git add *
           git commit -m "Deploy allure-history to gh-pages"
           git push origin gh-pages
-#          git push "https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" main:gh-pages
-#          echo "https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
-#          git push "https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" gh-pages
 
 #      - name: Deploy report to Github Pages
 #        if: always()
