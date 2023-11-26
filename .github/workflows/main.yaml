@@ -52,7 +52,9 @@ jobs:
 #          allure_report: allure-report
           #allure_history: allure-history
       - name: Generate Report
-        run: test.sh
+        run: |
+          chmod +x test.sh
+          ./test.sh
 #          mkdir -p ./allure-history
 #          cp -r ./gh-pages/. ./allure-history
 #          ls ./allure-history
