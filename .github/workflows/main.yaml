@@ -34,17 +34,13 @@ jobs:
         run: |
           pytest -m test_run -v -s --disable-warnings --alluredir=allure-results
 
-#      - name: Get Allure history
-#        uses: actions/checkout@v2
-#        if: always()
-#        continue-on-error: true
-#        with:
-#          ref: gh-pages
-#          path: gh-pages
-      - name: Submodule Test
-        run: |
-          git submodule add https://github.com/Vaishak-Kharvi/e2e_test/tree/gh-pages
-          ls
+      - name: Get Allure history
+        uses: actions/checkout@v2
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
 
       - name: Allure Report action from marketplace
         uses: simple-elf/allure-report-action@master
@@ -63,14 +59,17 @@ jobs:
           ls ./gh-pages/
           echo "Inside allure-history"
           ls ./allure-history/
+          git add allure-history
+          git commit -m "testing"
+          git push "https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" gh-pages
 
-      - name: Deploy report to Github Pages
-        if: always()
-        uses: peaceiris/actions-gh-pages@v2
-        env:
-          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: allure-history
+#      - name: Deploy report to Github Pages
+#        if: always()
+#        uses: peaceiris/actions-gh-pages@v2
+#        env:
+#          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#          PUBLISH_BRANCH: gh-pages
+#          PUBLISH_DIR: allure-history
 #
 #      - name: Push to GH-PAGES
 #        run: |
