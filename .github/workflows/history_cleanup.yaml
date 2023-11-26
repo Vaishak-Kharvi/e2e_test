@@ -31,7 +31,7 @@ jobs:
           fi
           
           git config user.email "action@github.com"
-          git config user.name "GitHub Action
+          git config user.name "GitHub Action"
           git add *
-          git commit -m "clean up"
-          git push
+          git commit -m "Deploy allure-history to gh-pages"
+          git push origin gh-pages
