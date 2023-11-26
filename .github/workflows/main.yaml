@@ -115,11 +115,7 @@ jobs:
 
       - name: Checking
         run: |
-          cd gh-pages
-          rm -r *
-          cd ..
-          git rm
-          cp -r allure-history/* gh-pages/
+#          cp -r allure-history/* gh-pages/
           echo "Inside gh-pages"
           cd gh-pages
           ls
