@@ -96,17 +96,22 @@ jobs:
 
           echo "keep allure history from gh-pages/last-history to allure-results/history"
           cp -r ./gh-pages/last-history/. ./allure-results/history
-#
-#            echo "generating report from allure-results to allure-report ..."
-#            #ls -l allure-results
-#            allure generate --clean allure-results -o allure-report
-#            #echo "listing report directory ..."
-#            #ls -l allure-report
-#
-#            echo "copy allure-report to allure-history/${{ github.run_number }}"
-#            cp -r ./allure-report/. ./allure-history/${{ github.run_number }}
-#            echo "copy allure-report history to /allure-history/last-history"
-#            cp -r ./allure-report/history/. ./allure-history/last-history
+
+          echo "generating report from allure-results to allure-report ..."
+          #ls -l allure-results
+          allure generate --clean allure-results -o allure-report
+          #echo "listing report directory ..."
+          #ls -l allure-report
+
+          echo "copy allure-report to allure-history/${{ github.run_number }}"
+          cp -r ./allure-report/. ./allure-history/${{ github.run_number }}
+          echo "copy allure-report history to /allure-history/last-history"
+          cp -r ./allure-report/history/. ./allure-history/last-history
+          
+          echo "Check inside allure-history"
+          ls ./allure-history
+          echo "Inside gh-pages"
+          ls ./gh-pages
 
 #      - name: Checking
 #        run: |
