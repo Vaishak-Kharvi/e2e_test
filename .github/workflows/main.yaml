@@ -53,6 +53,7 @@ jobs:
           #allure_history: allure-history
       - name: Generate Report
         run: |
+          mkdir -p ./gh-pages
           mkdir -p ./allure-history
           cp -r ./gh-pages/. ./allure-history
           ls ./allure-history
@@ -115,7 +116,6 @@ jobs:
 
       - name: Checking
         run: |
-          rm -ri ./gh-pages/*
           ls ./gh-pages
           cp allure-history/* gh-pages/
           echo "Inside gh-pages"
