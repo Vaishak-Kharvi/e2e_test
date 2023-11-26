@@ -24,9 +24,11 @@ jobs:
             ls | sort -n | head -n -$((5-2)) | xargs rm -rv;
             cd ${GITHUB_WORKSPACE}
           fi
-          
-          git config user.email "action@github.com"
-          git config user.name "GitHub Action"
-          git add *
-          git commit -m "Deploy allure-history to gh-pages"
-          git push origin gh-pages
+
+      - name: Write
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add .
+          git commit -m "Make changes in GitHub Actions workflow"
+          git push
