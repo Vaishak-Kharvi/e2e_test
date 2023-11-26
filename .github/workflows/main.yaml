@@ -60,7 +60,7 @@ jobs:
           REPOSITORY_OWNER_SLASH_NAME=${{ github.repository }}
           REPOSITORY_NAME=${REPOSITORY_OWNER_SLASH_NAME##*/}
           GITHUB_PAGES_WEBSITE_URL="https://${{ github.repository_owner }}.github.io/${REPOSITORY_NAME}"
-          #echo "Github pages url $GITHUB_PAGES_WEBSITE_URL"
+          echo "Github pages url $GITHUB_PAGES_WEBSITE_URL"
 
 #            if [[ '' != '' ]]; then
 #                INPUT_ALLURE_HISTORY="allure-history/''"
