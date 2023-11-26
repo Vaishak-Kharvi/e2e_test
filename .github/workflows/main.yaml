@@ -65,15 +65,15 @@ jobs:
 
           COUNT=$( ( ls ./allure-history | wc -l ) )
           echo "count folders in allure-history: ${COUNT}"
-          echo "keep reports count 20"
-          INPUT_KEEP_REPORTS=$((20+1))
+          echo "keep reports count 5"
+          INPUT_KEEP_REPORTS=$((5+1))
           echo "if ${COUNT} > ${INPUT_KEEP_REPORTS}"
           if (( ${COUNT} > ${INPUT_KEEP_REPORTS} )); then
             cd ./allure-history
             echo "remove index.html last-history"
             rm index.html last-history -rv
             echo "remove old reports"
-            ls | sort -n | head -n -$((20-2)) | xargs rm -rv;
+            ls | sort -n | head -n -$((5-2)) | xargs rm -rv;
             cd ${GITHUB_WORKSPACE}
           fi
 
