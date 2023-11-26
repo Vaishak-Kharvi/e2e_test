@@ -60,7 +60,7 @@ jobs:
           git config user.email github-actions@github.com
           git add .
           git commit -m "testing"
-          git push
+          git push origin gh-pages
 #        env:
 #          destination-branch: gh-pages
 
