@@ -118,10 +118,12 @@ jobs:
           cd gh-pages
           rm -r *
           cd ..
+          git rm
           cp -r allure-history/* gh-pages/
           echo "Inside gh-pages"
           cd gh-pages
           ls
+          git rm -r --cached .
           git config user.email "action@github.com"
           git config user.name "GitHub Action"
           git add *
