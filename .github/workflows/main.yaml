@@ -60,7 +60,7 @@ jobs:
           git config user.email github-actions@github.com
           git add .
           git commit -m "testing"
-          git push --force -quite "https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" master:gh-pages
+          git push
 #        env:
 #          destination-branch: gh-pages
 
