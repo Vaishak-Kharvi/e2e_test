@@ -62,33 +62,20 @@ jobs:
           GITHUB_PAGES_WEBSITE_URL="https://${{ github.repository_owner }}.github.io/${REPOSITORY_NAME}"
           echo "Github pages url $GITHUB_PAGES_WEBSITE_URL"
 
-#            if [[ '' != '' ]]; then
-#                INPUT_ALLURE_HISTORY="allure-history/''"
-#                INPUT_GH_PAGES="gh-pages/''"
-#                echo "NEW allure history folder allure-history"
-#                mkdir -p ./allure-history
-#                GITHUB_PAGES_WEBSITE_URL="${GITHUB_PAGES_WEBSITE_URL}/''"
-#                echo "NEW github pages url ${GITHUB_PAGES_WEBSITE_URL}"
-#            fi
-#
-#            if [[ '' != '' ]]; then
-#                GITHUB_PAGES_WEBSITE_URL="''"
-#                echo "Replacing github pages url with user input. NEW url ${GITHUB_PAGES_WEBSITE_URL}"
-#            fi
-#
-#            COUNT=$( ( ls ./allure-history | wc -l ) )
-#            echo "count folders in allure-history: ${COUNT}"
-#            echo "keep reports count 20"
-#            INPUT_KEEP_REPORTS=$((20+1))
-#            echo "if ${COUNT} > ${INPUT_KEEP_REPORTS}"
-#            if (( ${COUNT} > ${INPUT_KEEP_REPORTS} )); then
-#              cd ./allure-history
-#              echo "remove index.html last-history"
-#              rm index.html last-history -rv
-#              echo "remove old reports"
-#              ls | sort -n | head -n -$((20-2)) | xargs rm -rv;
-#              cd ${GITHUB_WORKSPACE}
-#            fi
+
+          COUNT=$( ( ls ./allure-history | wc -l ) )
+          echo "count folders in allure-history: ${COUNT}"
+          echo "keep reports count 20"
+          INPUT_KEEP_REPORTS=$((20+1))
+          echo "if ${COUNT} > ${INPUT_KEEP_REPORTS}"
+          if (( ${COUNT} > ${INPUT_KEEP_REPORTS} )); then
+            cd ./allure-history
+            echo "remove index.html last-history"
+            rm index.html last-history -rv
+            echo "remove old reports"
+            ls | sort -n | head -n -$((20-2)) | xargs rm -rv;
+            cd ${GITHUB_WORKSPACE}
+          fi
 #
 #            #echo "index.html"
 #            echo "<!DOCTYPE html><meta charset=\"utf-8\"><meta http-equiv=\"refresh\" content=\"0; URL=${GITHUB_PAGES_WEBSITE_URL}/${{ github.run_number }}/\">" > ./allure-history/index.html # path
