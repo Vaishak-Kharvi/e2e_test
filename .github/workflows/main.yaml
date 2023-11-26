@@ -77,7 +77,7 @@ jobs:
             cd ${GITHUB_WORKSPACE}
             cd ..
             pwd
-            cd ./gh-pages
+            cd gh-pages
             echo "remove index.html last-history"
             rm index.html last-history -rv
             echo "remove old reports"
