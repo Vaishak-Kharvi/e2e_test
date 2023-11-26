@@ -61,6 +61,9 @@ jobs:
           ls ./allure-history/
           git submodule add https://github.com/Vaishak-Kharvi/e2e_test.git allure-history
           git submodule update --init --recursive
+          git status
+          git commit -m "test submodule"
+          git push
 #          echo "https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
 #          git push "https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" gh-pages
 
