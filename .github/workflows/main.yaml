@@ -75,6 +75,12 @@ jobs:
             echo "remove old reports"
             ls | sort -n | head -n -$((5-2)) | xargs rm -rv;
             cd ${GITHUB_WORKSPACE}
+            cd ./gh-pages
+            echo "remove index.html last-history"
+            rm index.html last-history -rv
+            echo "remove old reports"
+            ls | sort -n | head -n -$((5-2)) | xargs rm -rv;
+            cd ${GITHUB_WORKSPACE}
           fi
 
           echo "index.html"
@@ -115,11 +121,8 @@ jobs:
 
       - name: Checking
         run: |
-          echo "Inside gh-pages"
-          cd gh-pages
-          git rm -r *
-          cd ..
           cp -r ./allure-history/* gh-pages/
+          cd gh-pages
           ls ./gh-pages
           git config user.email "action@github.com"
           git config user.name "GitHub Action"
