@@ -115,7 +115,6 @@ jobs:
 
       - name: Checking
         run: |
-#          cp -r allure-history/* gh-pages/
           echo "Inside gh-pages"
           cd gh-pages
           ls
@@ -125,3 +124,4 @@ jobs:
           git add *
           git commit -m "Deploy allure-history to gh-pages"
           git push origin gh-pages
+      #          cp -r allure-history/* gh-pages/
