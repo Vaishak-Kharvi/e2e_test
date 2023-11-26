@@ -38,7 +38,12 @@ jobs:
         run: |
           git fetch
           git checkout -f gh-pages --
-          ls
+          
+          #echo "index.html"
+          echo "<!DOCTYPE html><meta charset=\"utf-8\"><meta http-equiv=\"refresh\" content=\"0; URL=https://Vaishak-Kharvi.github.io/e2e_test/${{ github.run_number }}/\">" > ./index.html # path
+          echo "<meta http-equiv=\"Pragma\" content=\"no-cache\"><meta http-equiv=\"Expires\" content=\"0\">" >> ./index.html
+          #cat ./allure-history/index.html
+
           cp -r ./last-history/. ./allure-results/history
           allure generate --clean allure-results -o allure-report
           echo "copy allure-report to ${{ github.run_number }}"
@@ -49,7 +54,8 @@ jobs:
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add ${{ github.run_number }}
-          git commit -m "test commit"
+          git add index.html
+          git commit -m "Automated commit ${date}"
           git push origin gh-pages
         env:
          destination-branch: gh-pages
