@@ -46,13 +46,13 @@ jobs:
           echo "copy allure-report history to /allure-history/last-history"
           cp -r ./allure-report/history/. ./last-history
           ls
-#          git config user.name github-actions
-#          git config user.email github-actions@github.com
-#          git add ${{ github.run_number }}
-#          git commit -m "test commit"
-#          git push origin gh-pages
-#        env:
-#         destination-branch: gh-pages
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add ${{ github.run_number }}
+          git commit -m "test commit"
+          git push origin gh-pages
+        env:
+         destination-branch: gh-pages
 
 
 
