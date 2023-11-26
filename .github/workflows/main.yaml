@@ -59,10 +59,12 @@ jobs:
           ls ./gh-pages/
           echo "Inside allure-history"
           ls ./allure-history/
-          git submodule add https://github.com/Vaishak-Kharvi/e2e_test.git allure-history
-          git submodule update --init --recursive
-          git submodule commit -m "test submodule"
-          git submodule push
+          cp -r ./allure-history/. ./gh-pages
+          git add gh-pages
+          git commit -m "test"
+          git push origin gh-pages
+        env:
+          destination-branch: gh-pages
 #          echo "https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
 #          git push "https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" gh-pages
 
