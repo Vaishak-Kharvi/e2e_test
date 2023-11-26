@@ -119,7 +119,7 @@ jobs:
           cd gh-pages
           rm -r *
           pwd
-          ls ./gh-pages
+          ls
           cd..
           pwd
           cp -r allure-history/* gh-pages/
