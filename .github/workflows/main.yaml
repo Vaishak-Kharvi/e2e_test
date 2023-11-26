@@ -34,13 +34,17 @@ jobs:
         run: |
           pytest -m test_run -v -s --disable-warnings --alluredir=allure-results
 
-      - name: Get Allure history
-        uses: actions/checkout@v2
-        if: always()
-        continue-on-error: true
-        with:
-          ref: gh-pages
-          path: gh-pages
+#      - name: Get Allure history
+#        uses: actions/checkout@v2
+#        if: always()
+#        continue-on-error: true
+#        with:
+#          ref: gh-pages
+#          path: gh-pages
+      - name: Submodule Test
+        run: |
+          git submodule add https://github.com/Vaishak-Kharvi/e2e_test/tree/gh-pages
+          ls
 
       - name: Allure Report action from marketplace
         uses: simple-elf/allure-report-action@master
