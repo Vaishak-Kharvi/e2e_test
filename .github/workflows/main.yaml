@@ -59,9 +59,6 @@ jobs:
           ls ./gh-pages/
           echo "Inside allure-history"
           ls ./allure-history/
-          git add allure-history
-          git commit -m "testing"
-          git status
           git submodule add https://github.com/Vaishak-Kharvi/e2e_test.git allure-history
           git submodule update --init --recursive
 #          echo "https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
