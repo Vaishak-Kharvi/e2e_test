@@ -120,7 +120,7 @@ jobs:
           rm -r *
           pwd
           ls
-          cd..
+          cd ..
           pwd
           cp -r allure-history/* gh-pages/
           echo "Inside gh-pages"
