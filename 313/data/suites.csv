@@ -1,0 +1,3 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Sun Nov 26 13:19:23 UTC 2023","Sun Nov 26 13:19:45 UTC 2023","21940","Step_Definition","google_sd","","","","test_user_validates_title_1","/home/runner/work/e2e_test/e2e_test/Features/google.feature: User validates title 1"
+"passed","Sun Nov 26 13:19:45 UTC 2023","Sun Nov 26 13:19:49 UTC 2023","3685","Step_Definition","google_sd","","","","test_user_validates_title_2","/home/runner/work/e2e_test/e2e_test/Features/google.feature: User validates title 2"
