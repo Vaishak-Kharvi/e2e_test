@@ -1,0 +1,31 @@
+name: HISTORY CLEAN UP
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout to gh-pages
+        uses: actions/checkout@v2
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Clean up
+        run: |
+          COUNT=$( ( ls ./gh-pages | wc -l ) )
+          echo "count folders in allure-history: ${COUNT}"
+          echo "keep reports count 5"
+          INPUT_KEEP_REPORTS=$((5+1))
+          echo "if ${COUNT} > ${INPUT_KEEP_REPORTS}"
+          if (( ${COUNT} > ${INPUT_KEEP_REPORTS} )); then
+            cd ./gh-pages
+            echo "remove index.html last-history"
+            rm index.html last-history -rv
+            echo "remove old reports"
+            ls | sort -n | head -n -$((5-2)) | xargs rm -rv;
+            cd ${GITHUB_WORKSPACE}
+          fi

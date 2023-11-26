@@ -75,14 +75,6 @@ jobs:
             echo "remove old reports"
             ls | sort -n | head -n -$((5-2)) | xargs rm -rv;
             cd ${GITHUB_WORKSPACE}
-            cd ..
-            pwd
-            cd gh-pages
-            echo "remove index.html last-history"
-            rm index.html last-history -rv
-            echo "remove old reports"
-            ls | sort -n | head -n -$((5-2)) | xargs rm -rv;
-            cd ${GITHUB_WORKSPACE}
           fi
 
           echo "index.html"
