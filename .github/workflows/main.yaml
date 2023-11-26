@@ -42,52 +42,27 @@ jobs:
           ref: gh-pages
           path: gh-pages
 
-      - name: Check out to GH page
+      - name: Allure Report action from marketplace
+        uses: simple-elf/allure-report-action@master
+        if: always()
+        id: allure-report
+        with:
+          allure_results: target/allure-results
+          gh_pages: gh-pages
+          allure_report: allure-report
+          allure_history: allure-history
+
+      - name: Push to GH-PAGES
         run: |
           git fetch
           git checkout -f gh-pages --
-          
-          #echo "index.html"
-          echo "<!DOCTYPE html><meta charset=\"utf-8\"><meta http-equiv=\"refresh\" content=\"0; URL=https://Vaishak-Kharvi.github.io/e2e_test/${{ github.run_number }}/\">" > ./index.html # path
-          echo "<meta http-equiv=\"Pragma\" content=\"no-cache\"><meta http-equiv=\"Expires\" content=\"0\">" >> ./index.html
-          #cat ./allure-history/index.html
-
-          cp -r ./last-history/. ./allure-results/history
-          allure generate --clean allure-results -o allure-report
-          echo "copy allure-report to ${{ github.run_number }}"
-          cp -r ./allure-report/. ./${{ github.run_number }}
-          echo "copy allure-report history to /allure-history/last-history"
-          cp -r ./allure-report/history/. ./last-history
-          ls
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git add ${{ github.run_number }}
-          git add index.html
-          git add last-history
-          git commit -m "Automated commit ${date}"
+          git commit -a
           git push origin gh-pages
         env:
-         destination-branch: gh-pages
+          destination-branch: gh-pages
 
-
-
-#      - name: Get Allure history
-#        uses: actions/checkout@v2
-#        if: always()
-#        continue-on-error: true
-#        with:
-#          ref: gh-pages
-#          path: gh-pages
-
-#      - name: Allure Report action from marketplace
-#        uses: simple-elf/allure-report-action@master
-#        if: always()
-#        id: allure-report
-#        with:
-#          allure_results: target/allure-results
-#          gh_pages: gh-pages
-#          allure_report: allure-report
-#          allure_history: allure-history
 
 #      - name: Generate Report
 #        run: |
