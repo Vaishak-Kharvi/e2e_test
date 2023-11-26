@@ -26,5 +26,5 @@ jobs:
           fi
           git config user.email "action@github.com"
           git config user.name "GitHub Action"
-          git commit -a
+          git commit -m "clean up"
           git push
