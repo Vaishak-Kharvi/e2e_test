@@ -61,7 +61,9 @@ jobs:
           ls ./allure-history/
           git add allure-history
           git commit -m "testing"
-          git push "https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" gh-pages
+          git status
+          echo "https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
+#          git push "https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" gh-pages
 
 #      - name: Deploy report to Github Pages
 #        if: always()
