@@ -18,13 +18,13 @@ jobs:
           echo "if ${COUNT} > ${INPUT_KEEP_REPORTS}"
           if (( ${COUNT} > ${INPUT_KEEP_REPORTS} )); then
             ls
-            echo "remove index.html last-history"
-            rm index.html last-history -rv
             echo "remove old reports"
             ls | sort -n | head -n -$((5-2)) | xargs rm -rv;
             cd ${GITHUB_WORKSPACE}
           fi
           git config user.email "action@github.com"
           git config user.name "GitHub Action"
+
           git commit -m "clean up"
           git push
+
