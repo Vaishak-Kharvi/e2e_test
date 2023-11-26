@@ -54,17 +54,8 @@ jobs:
 
       - name: Checking
         run: |
+          cp -r allure-history/* gh-pages/
           ls
-          echo "Inside gh-pages"
-          ls ./gh-pages/
-          echo "Inside allure-history"
-          ls ./allure-history/
-          cp -r ./allure-history/. ./gh-pages
-          git add gh-pages
-          git commit -m "test"
-          git push origin gh-pages
-        env:
-          destination-branch: gh-pages
 #          echo "https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
 #          git push "https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" gh-pages
 
