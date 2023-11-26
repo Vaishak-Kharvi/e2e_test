@@ -42,26 +42,32 @@ jobs:
           ref: gh-pages
           path: gh-pages
 
-      - name: Allure Report action from marketplace
-        uses: simple-elf/allure-report-action@master
-        if: always()
-        id: allure-report
-        with:
-          allure_results: target/allure-results
-          gh_pages: gh-pages
-          allure_report: allure-report
-          allure_history: allure-history
-
-      - name: Push to GH-PAGES
+      - name: Test
         run: |
-          cd allure-history/
-          git init
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add .
-          git commit -m "testing"
-          git push origin gh-pages
-#        env:
+          ls
+          cd gh-pages
+          ls 
+
+#      - name: Allure Report action from marketplace
+#        uses: simple-elf/allure-report-action@master
+#        if: always()
+#        id: allure-report
+#        with:
+#          allure_results: target/allure-results
+#          gh_pages: gh-pages
+#          allure_report: allure-report
+#          allure_history: allure-history
+#
+#      - name: Push to GH-PAGES
+#        run: |
+#          cd allure-history/
+#          git init
+#          git config user.name github-actions
+#          git config user.email github-actions@github.com
+#          git add .
+#          git commit -m "testing"
+#          git push origin gh-pages
+##        env:
 #          destination-branch: gh-pages
 
 
