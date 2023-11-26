@@ -35,7 +35,7 @@ jobs:
           pytest -m test_run -v -s --disable-warnings --alluredir=allure-results
           allure generate --clean allure-results -o allure-report
           mkdir -p ${{ github.run_number }}
-          cp -r allure-results/* ${{ github.run_number }}
+          cp -r allure-report/* ${{ github.run_number }}
           ls
           echo "Checking inside run number dir"
           ls ./${{ github.run_number }}
