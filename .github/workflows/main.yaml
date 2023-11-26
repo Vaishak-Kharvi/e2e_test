@@ -80,22 +80,22 @@ jobs:
           echo "index.html"
           echo "<!DOCTYPE html><meta charset=\"utf-8\"><meta http-equiv=\"refresh\" content=\"0; URL=${GITHUB_PAGES_WEBSITE_URL}/${{ github.run_number }}/\">" > ./allure-history/index.html # path
           echo "<meta http-equiv=\"Pragma\" content=\"no-cache\"><meta http-equiv=\"Expires\" content=\"0\">" >> ./allure-history/index.html
-          cat ./allure-history/index.html
+          #cat ./allure-history/index.html
 
-#            #echo "executor.json"
-#            echo '{"name":"GitHub Actions","type":"github","reportName":"Allure Report with history",' > executor.json
-#            echo "\"url\":\"${GITHUB_PAGES_WEBSITE_URL}\"," >> executor.json # ???
-#            echo "\"reportUrl\":\"${GITHUB_PAGES_WEBSITE_URL}/${{ github.run_number }}/\"," >> executor.json
-#            echo "\"buildUrl\":\"https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\"," >> executor.json
-#            echo "\"buildName\":\"GitHub Actions Run #${{ github.run_id }}\",\"buildOrder\":\"${{ github.run_number }}\"}" >> executor.json
-#            #cat executor.json
-#            mv ./executor.json ./allure-results
-#
-#            #environment.properties
-#            echo "URL=${GITHUB_PAGES_WEBSITE_URL}" >> ./allure-results/environment.properties
-#
-#            echo "keep allure history from gh-pages/last-history to allure-results/history"
-#            cp -r ./gh-pages/last-history/. ./allure-results/history
+          #echo "executor.json"
+          echo '{"name":"GitHub Actions","type":"github","reportName":"Allure Report with history",' > executor.json
+          echo "\"url\":\"${GITHUB_PAGES_WEBSITE_URL}\"," >> executor.json # ???
+          echo "\"reportUrl\":\"${GITHUB_PAGES_WEBSITE_URL}/${{ github.run_number }}/\"," >> executor.json
+          echo "\"buildUrl\":\"https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\"," >> executor.json
+          echo "\"buildName\":\"GitHub Actions Run #${{ github.run_id }}\",\"buildOrder\":\"${{ github.run_number }}\"}" >> executor.json
+          #cat executor.json
+          mv ./executor.json ./allure-results
+
+          #environment.properties
+          echo "URL=${GITHUB_PAGES_WEBSITE_URL}" >> ./allure-results/environment.properties
+
+          echo "keep allure history from gh-pages/last-history to allure-results/history"
+          cp -r ./gh-pages/last-history/. ./allure-results/history
 #
 #            echo "generating report from allure-results to allure-report ..."
 #            #ls -l allure-results
