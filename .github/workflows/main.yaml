@@ -33,25 +33,21 @@ jobs:
       - name: Running the Python script
         run: |
           pytest -m test_run -v -s --disable-warnings --alluredir=allure-results
-          allure generate --clean allure-results -o allure-report
-          mkdir -p ${{ github.run_number }}
-          cp -r allure-report/* ${{ github.run_number }}
-          ls
-          echo "Checking inside run number dir"
-          ls ./${{ github.run_number }}
 
       - name: Check out to GH page
         run: |
           git fetch
           git checkout -f gh-pages --
           ls
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add ${{ github.run_number }}
-          git commit -m "test commit"
-          git push origin gh-pages
-        env:
-         destination-branch: gh-pages
+          cp -r ./last-history/. ./allure-results/history
+          ls ./allure-results/history
+#          git config user.name github-actions
+#          git config user.email github-actions@github.com
+#          git add ${{ github.run_number }}
+#          git commit -m "test commit"
+#          git push origin gh-pages
+#        env:
+#         destination-branch: gh-pages
 
 
 
