@@ -39,21 +39,19 @@ jobs:
           ls
           echo "Checking inside run number dir"
           ls ./${{ github.run_number }}
-          echo "Checking inside history dir"
-          ls ./${{ github.run_number }}/history
 
-#      - name: Check out to GH page
-#        run: |
-#          git fetch
-#          git checkout -f gh-pages --
-#          ls
-#          git config user.name github-actions
-#          git config user.email github-actions@github.com
-#          git add allure-res
-#          git commit -m "test commit"
-#          git push origin gh-pages
-#        env:
-#         destination-branch: gh-pages
+      - name: Check out to GH page
+        run: |
+          git fetch
+          git checkout -f gh-pages --
+          ls
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add ${{ github.run_number }}
+          git commit -m "test commit"
+          git push origin gh-pages
+        env:
+         destination-branch: gh-pages
 
 
 
