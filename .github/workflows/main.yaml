@@ -118,6 +118,8 @@ jobs:
           ls ./gh-pages
           cd gh-pages
           rm -r *
+          pwd
+          ls
           cp -r allure-history/* gh-pages/
           echo "Inside gh-pages"
           ls ./gh-pages
