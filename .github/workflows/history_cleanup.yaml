@@ -24,9 +24,9 @@ jobs:
             cd ${GITHUB_WORKSPACE}
           fi
           ls
-          # git config user.email "action@github.com"
-          # git config user.name "GitHub Action"
-          # git status
-          # git add .
-          # git commit -m "test"
-          # git push origin gh-pages
+          git config user.email "action@github.com"
+          git config user.name "GitHub Action"
+          git status
+          git add .
+          git commit -m "test"
+          git push origin gh-pages
