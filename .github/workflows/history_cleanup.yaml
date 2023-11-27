@@ -11,7 +11,7 @@ jobs:
 
       - name: Clean up
         run: |
-          ls | sort -n | head -n | xargs rm -rv;
+          ls | xargs rm -rv;
           cd ${GITHUB_WORKSPACE}
           ls
           git config user.email "action@github.com"
