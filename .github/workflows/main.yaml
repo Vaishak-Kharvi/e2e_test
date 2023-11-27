@@ -96,7 +96,7 @@ jobs:
           echo "URL=${GITHUB_PAGES_WEBSITE_URL}" >> ./allure-results/environment.properties
             
           folder_path="./gh-pages/last-history"  
-          if [-d "$folder_path" ]; then
+          if [ -d "$folder_path" ]; then
             echo "keep allure history from gh-pages/last-history to allure-results/history"
             cp -r ./gh-pages/last-history/. ./allure-results/history
           fi
