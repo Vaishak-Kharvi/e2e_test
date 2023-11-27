@@ -11,7 +11,7 @@ jobs:
 
       - name: Clean up
         run: |
-          COUNT=$( ( ls -A | grep -vE 'last-history|index.html' | wc -l ) )
+          COUNT=$(ls -A . | grep -vE 'last-history|index.html' | wc -l)
           echo "Folder Count: ${COUNT}"
           INPUT_KEEP_REPORTS=$((5+1))
           echo "if ${COUNT} > ${INPUT_KEEP_REPORTS}"
