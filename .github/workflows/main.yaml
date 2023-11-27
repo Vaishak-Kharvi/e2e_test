@@ -97,9 +97,6 @@ jobs:
           chmod +x test.sh
           ./test.sh
 
-          echo "keep allure history from gh-pages/last-history to allure-results/history"
-          cp -r ./gh-pages/last-history/. ./allure-results/history
-
           echo "generating report from allure-results to allure-report ..."
           #ls -l allure-results
           allure generate --clean allure-results -o allure-report
