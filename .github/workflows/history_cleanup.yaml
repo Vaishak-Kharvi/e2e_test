@@ -11,9 +11,8 @@ jobs:
 
       - name: Clean up
         run: |
-          COUNT=$(find . -mindepth 1 -maxdepth 1 -type d ! -name 'last-history/*' ! -name '.github/*' | wc -l)
-          echo "count folders in allure-history: ${COUNT}"
-          echo "keep reports count 5"
+          COUNT=$(find . -mindepth 1 -maxdepth 1 -type d ! -name 'last-history' ! -name '.github/*' | wc -l)
+          echo "Folder Count: ${COUNT}"
           INPUT_KEEP_REPORTS=$((5+1))
           echo "if ${COUNT} > ${INPUT_KEEP_REPORTS}"
           if (( ${COUNT} > ${INPUT_KEEP_REPORTS} )); then
