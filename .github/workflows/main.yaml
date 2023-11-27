@@ -94,12 +94,12 @@ jobs:
           #environment.properties
           echo "URL=${GITHUB_PAGES_WEBSITE_URL}" >> ./allure-results/environment.properties
 
-          if [-d ./gh-pages/last-history ]; then
-            echo "keep allure history from gh-pages/last-history to allure-results/history"
-            cp -r ./gh-pages/last-history/. ./allure-results/history
-          else
-            echo "No last-history folder"
-            ls ./allure-results
+#          if [-d ./gh-pages/last-history ]; then
+#            echo "keep allure history from gh-pages/last-history to allure-results/history"
+#            cp -r ./gh-pages/last-history/. ./allure-results/history
+#          else
+#            echo "No last-history folder"
+#            ls ./allure-results
 
           echo "generating report from allure-results to allure-report ..."
           #ls -l allure-results
