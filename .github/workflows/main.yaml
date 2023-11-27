@@ -119,6 +119,7 @@ jobs:
 
       - name: Checking
         run: |
+          allure --clean
           cp -r allure-history/* gh-pages/
           cd gh-pages
           git config user.email "action@github.com"
