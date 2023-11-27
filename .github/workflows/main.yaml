@@ -121,6 +121,7 @@ jobs:
         run: |
           cp -rf allure-history/* gh-pages/
           cd gh-pages
+          ls
           git config user.email "action@github.com"
           git config user.name "GitHub Action"
           git add *
