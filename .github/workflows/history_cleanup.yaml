@@ -11,7 +11,7 @@ jobs:
 
       - name: Clean up
         run: |
-          COUNT=$( ( -d ! -name 'last-history' ! | wc -l ) )
+          COUNT=$( ( d ! -name 'last-history' ! | wc -l ) )
           echo "count folders in allure-history: ${COUNT}"
           echo "keep reports count 5"
           INPUT_KEEP_REPORTS=$((5+1))
@@ -22,9 +22,10 @@ jobs:
             ls | sort -n | head -n -$((5-2)) | xargs rm -rv;
             cd ${GITHUB_WORKSPACE}
           fi
-          git config user.email "action@github.com"
-          git config user.name "GitHub Action"
-          git status
-          git add .
-          git commit -m "test"
-          git push origin gh-pages
+          ls
+          # git config user.email "action@github.com"
+          # git config user.name "GitHub Action"
+          # git status
+          # git add .
+          # git commit -m "test"
+          # git push origin gh-pages
