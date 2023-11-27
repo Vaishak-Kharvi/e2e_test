@@ -15,12 +15,12 @@ jobs:
           echo "Folder Count: ${COUNT}"
           F_Count=$((COUNT - 2))
           echo "Final Count = ${F_Count}"
-          INPUT_KEEP_REPORTS=$((5+1))
+          INPUT_KEEP_REPORTS=$((4+1))
           echo "if ${COUNT} > ${INPUT_KEEP_REPORTS}"
           if (( ${COUNT} > ${INPUT_KEEP_REPORTS} )); then
             ls
             echo "remove old reports"
-            ls | sort -n | head -n -$((5-2)) | xargs rm -rv;
+            ls -l grep -vE 'index.html|last-history' | sort -n | head -n -$((5-2)) | xargs rm -rv;
             cd ${GITHUB_WORKSPACE}
           fi
           ls
