@@ -11,7 +11,7 @@ jobs:
 
       - name: Clean up
         run: |
-          COUNT=$( ( ls | wc -l ) )
+          COUNT=$( ( -d ! -name 'last-history' ! | wc -l ) )
           echo "count folders in allure-history: ${COUNT}"
           echo "keep reports count 5"
           INPUT_KEEP_REPORTS=$((5+1))
