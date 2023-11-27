@@ -11,16 +11,8 @@ jobs:
 
       - name: Clean up
         run: |
-          COUNT=$( ( ls | wc -l ) )
-          echo "Folder Count: ${COUNT}"
-          INPUT_KEEP_REPORTS=$((5+1))
-          echo "if ${COUNT} > ${INPUT_KEEP_REPORTS}"
-          if (( ${COUNT} > ${INPUT_KEEP_REPORTS} )); then
-            ls
-            echo "remove old reports"
-            ls | grep -vE 'index.html|last-history' | sort -n | head -n -$((INPUT_KEEP_REPORTS-2)) | xargs rm -rv;
-            cd ${GITHUB_WORKSPACE}
-          fi
+          ls rm -rv;
+          cd ${GITHUB_WORKSPACE}
           ls
           git config user.email "action@github.com"
           git config user.name "GitHub Action"
