@@ -13,7 +13,7 @@ jobs:
         run: |
           COUNT=$( ( ls | wc -l ) )
           echo "Folder Count: ${COUNT}"
-          F_Count = $((${COUNT}-2))
+          F_Count=$((COUNT - 2))
           echo "Final Count = ${F_Count}"
           INPUT_KEEP_REPORTS=$((5+1))
           echo "if ${COUNT} > ${INPUT_KEEP_REPORTS}"
