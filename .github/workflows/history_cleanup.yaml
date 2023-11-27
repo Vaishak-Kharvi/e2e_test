@@ -20,7 +20,7 @@ jobs:
           if (( ${COUNT} > ${INPUT_KEEP_REPORTS} )); then
             ls
             echo "remove old reports"
-            ls -l grep -vE 'index.html|last-history' | sort -n | head -n -$((5-2)) | xargs rm -rv;
+            ls -l | grep -vE 'index.html|last-history' | sort -n | head -n -$((5-2)) | xargs rm -rv;
             cd ${GITHUB_WORKSPACE}
           fi
           ls
