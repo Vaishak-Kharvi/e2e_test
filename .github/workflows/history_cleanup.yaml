@@ -11,8 +11,10 @@ jobs:
 
       - name: Clean up
         run: |
-          COUNT=$(find . -mindepth 1 -maxdepth 1 -type d ! -name 'last-history' | wc -l)
+          COUNT=$( ( ls | wc -l ) )
           echo "Folder Count: ${COUNT}"
+          F_Count = $(({COUNT}-2))
+          echo "Final Count = ${F_Count}"
           INPUT_KEEP_REPORTS=$((5+1))
           echo "if ${COUNT} > ${INPUT_KEEP_REPORTS}"
           if (( ${COUNT} > ${INPUT_KEEP_REPORTS} )); then
