@@ -11,12 +11,18 @@ jobs:
 
       - name: Clean up
         run: |
-          ls | xargs rm -rv;
-          cd ${GITHUB_WORKSPACE}
+          COUNT=$( ( ls | wc -l ) )
+          INPUT_KEEP_REPORTS=$((5+1))
+          echo "if ${COUNT} > ${INPUT_KEEP_REPORTS}"
+          if (( ${COUNT} > ${INPUT_KEEP_REPORTS} )); then
+            echo "Removing Old Reports"
+            ls | grep -vE 'index.html|last-history' | sort -n | head -n -$((INPUT_KEEP_REPORTS-2)) | xargs rm -rv;
+            cd ${GITHUB_WORKSPACE}
+          fi  
           ls
-          git config user.email "action@github.com"
-          git config user.name "GitHub Action"
-          git status
-          git add .
-          git commit -m "test"
-          git push origin gh-pages
+          # git config user.email "action@github.com"
+          # git config user.name "GitHub Action"
+          # git status
+          # git add .
+          # git commit -m "test"
+          # git push origin gh-pages
