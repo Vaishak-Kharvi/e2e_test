@@ -12,7 +12,7 @@ jobs:
       - name: Clean up
         run: |
           COUNT=$( ( ls | wc -l ) )
-          INPUT_KEEP_REPORTS=$((5+1))
+          INPUT_KEEP_REPORTS=41
           echo "if ${COUNT} > ${INPUT_KEEP_REPORTS}"
           if (( ${COUNT} > ${INPUT_KEEP_REPORTS} )); then
             echo "Removing Old Reports"
