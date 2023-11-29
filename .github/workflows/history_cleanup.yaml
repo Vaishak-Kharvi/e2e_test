@@ -19,11 +19,12 @@ jobs:
             echo "Removing Old Reports"
             ls | grep -vE 'index.html|last-history' | sort -n | head -n -$((INPUT_KEEP_REPORTS-2)) | xargs rm -rv;
             cd ${GITHUB_WORKSPACE}
+            git config user.email "action@github.com"
+            git config user.name "GitHub Action"
+            git status
+            git add .
+            git commit -m "Automated History Clean Up"
+            git push origin gh-pages
           fi  
           ls
-          git config user.email "action@github.com"
-          git config user.name "GitHub Action"
-          git status
-          git add .
-          git commit -m "Automated History Clean Up"
-          git push origin gh-pages
+          
