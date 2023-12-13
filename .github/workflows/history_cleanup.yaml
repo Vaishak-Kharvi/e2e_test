@@ -1,7 +1,5 @@
 name: HISTORY CLEAN UP
 on:
-  schedule:
-    - cron: '*/15 * * * *'
   workflow_dispatch:
 
 jobs:
